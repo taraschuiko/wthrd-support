@@ -31,7 +31,12 @@ export default {
       message: "",
       invalidEmail: false,
       invalidMessage: false,
-      queryParams: {}
+      queryParams: {},
+      emailData: {
+        service_id: "default_service",
+        template_id: "template_dEWPSdJI",
+        user_id: "user_aDKCokBqCiApYD7AQCNLv"
+      }
     };
   },
   mounted() {
@@ -67,7 +72,22 @@ export default {
     send() {
       event.preventDefault();
       if (this.validate()) {
-        alert("Send");
+        fetch("https://api.emailjs.com/api/v1.0/email/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            ...this.emailData,
+            template_params: {
+              email: this.email,
+              message: this.message,
+              system_version: this.queryParams.system_version,
+              device_model: this.queryParams.device_model,
+              app_version: this.queryParams.app_version
+            }
+          })
+        });
       }
     }
   }
