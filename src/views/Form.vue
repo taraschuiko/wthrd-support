@@ -30,8 +30,12 @@ export default {
       email: "",
       message: "",
       invalidEmail: false,
-      invalidMessage: false
+      invalidMessage: false,
+      queryParams: {}
     };
+  },
+  mounted() {
+    this.queryParams = this.$route.query;
   },
   methods: {
     validate() {
@@ -63,7 +67,7 @@ export default {
     send() {
       event.preventDefault();
       if (this.validate()) {
-        alert("Send")
+        alert("Send");
       }
     }
   }
