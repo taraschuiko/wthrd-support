@@ -17,7 +17,12 @@
       v-model="message"
       :class="this.invalidMessage ? 'invalid' : ''"
     ></textarea>
-    <button class="form__button">Send</button>
+    <button
+      class="form__button"
+      :class="this.sending ? 'form__button--active' : ''"
+    >
+      {{ this.sending ? "Sending..." : "Send" }}
+    </button>
   </form>
 </template>
 
@@ -31,6 +36,7 @@ export default {
       message: "",
       invalidEmail: false,
       invalidMessage: false,
+      sending: false,
       queryParams: {},
       emailData: {
         service_id: "default_service",
@@ -71,6 +77,8 @@ export default {
     },
     send() {
       event.preventDefault();
+      this.sending = true;
+
       if (this.validate()) {
         fetch("https://api.emailjs.com/api/v1.0/email/send", {
           method: "POST",
@@ -141,6 +149,10 @@ export default {
     border: 0;
     border-radius: 4px;
     outline: 0;
+
+    &--active {
+      background-color: rgba(17, 17, 17, 0.2);
+    }
   }
 }
 </style>
