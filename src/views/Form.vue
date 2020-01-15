@@ -41,9 +41,9 @@ export default {
       sending: false,
       queryParams: {},
       emailData: {
-        service_id: "default_service",
-        template_id: "template_dEWPSdJI",
-        user_id: "user_aDKCokBqCiApYD7AQCNLv"
+        service_id: process.env.VUE_APP_SERVICE_ID,
+        template_id: process.env.VUE_APP_TEMPLATE_ID,
+        user_id: process.env.VUE_APP_USER_ID
       }
     };
   },
