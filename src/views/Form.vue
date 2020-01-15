@@ -149,6 +149,7 @@ export default {
     border: 0;
     border-radius: 4px;
     outline: 0;
+    cursor: pointer;
 
     &--active {
       background-color: rgba(17, 17, 17, 0.2);
