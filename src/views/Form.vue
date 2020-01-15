@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import router from "../router";
+
 export default {
   name: "Form",
   components: {},
@@ -95,7 +97,7 @@ export default {
               app_version: this.queryParams.app_version
             }
           })
-        });
+        }).then(() => router.push("success"));
       }
     }
   }
