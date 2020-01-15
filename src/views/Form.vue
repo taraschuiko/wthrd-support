@@ -20,6 +20,7 @@
     <button
       class="form__button"
       :class="this.sending ? 'form__button--active' : ''"
+      :disabled="this.sending"
     >
       {{ this.sending ? "Sending..." : "Send" }}
     </button>
@@ -156,6 +157,7 @@ export default {
 
     &--active {
       background-color: rgba(17, 17, 17, 0.2);
+      cursor: default;
     }
   }
 }
