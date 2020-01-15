@@ -122,6 +122,7 @@ export default {
     resize: none;
     line-height: 1.5;
     border: 1px solid #ffffff;
+    appearance: none;
 
     &::placeholder {
       color: #90a9be;
