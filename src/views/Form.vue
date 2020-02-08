@@ -80,9 +80,9 @@ export default {
     },
     send() {
       event.preventDefault();
-      this.sending = true;
 
       if (this.validate()) {
+        this.sending = true;
         fetch("https://api.emailjs.com/api/v1.0/email/send", {
           method: "POST",
           headers: {
