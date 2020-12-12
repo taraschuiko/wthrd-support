@@ -96,7 +96,8 @@ export default {
               message: this.message,
               system_version: this.queryParams.system_version,
               device_model: this.queryParams.device_model,
-              app_version: this.queryParams.app_version
+              app_version: this.queryParams.app_version,
+              id: this.queryParams.id
             }
           })
         }).then(() => router.push("success"));
