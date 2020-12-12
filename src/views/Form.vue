@@ -91,6 +91,7 @@ export default {
           body: JSON.stringify({
             ...this.emailData,
             template_params: {
+              ticket: Math.floor(Math.random() * (999999 - 100000) + 100000),
               email: this.email,
               message: this.message,
               system_version: this.queryParams.system_version,
